@@ -338,10 +338,5 @@ Track_Feature.to_sql('Track_Feature', con=engine, if_exists='replace',
 			index_label='track_id', dtype=Track_Feature_dtypes)
 
 
-
-con = sqlite3.connect('spotify.db')
-cur = con.cursor()
-a = cur.execute('Select * from sqlite_schema')
-for row in a:
-	pprint.pprint(row)
+m
 

@@ -6,14 +6,10 @@ import pprint
 import pandas as pd
 
 
-# con = sqlite3.connect('spotify.db')
-# cur = con.cursor()
-# cur.execute("DROP VIEW IF EXISTS All_Data")
-
 
 def make_views(views, database='spotify.db'):
 	'''Creates the specified views into a database.
-	views: a dictionary of view names and strings that should be valid SQL queries to create them.
+	views: Dict. Keys are view names. Values are SQL queries to create the views.
 	database: the database in which the view should be stored.''' 
 	con = sqlite3.connect(database)
 	cur = con.cursor()

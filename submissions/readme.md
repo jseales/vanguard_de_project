@@ -1,17 +1,18 @@
 # Lauren Seales Vanguard / Onramp Data Engineering Project
 
 ## Contents
-	*ingest_transform.py
-	*views.py
-	*visualize.py
-	*spotify.db
-	*visualizations.pdf
+
+* ingest_transform.py
+* views.py
+* visualize.py
+* spotify.db
+* visualizations.pdf
 
 ### ingest_transform.py
-First I create an instance of spotipy.Spotify which will gather data.
+First I create an instance of `spotipy`.Spotify which will gather data.
 I define my list of bands, who represent a variety of styles and time periods. 
 They all have animal-themed band names. 
-I ingest data via the spotipy API, and store it in four DataFrames:
+I ingest data via the `spotipy` API, and store it in four DataFrames:
 * Artist
 * Album
 * Track
@@ -37,9 +38,9 @@ a table in it. The tables have the same names as the DataFrames:
 * Track_Feature
 
 ### views.py
-I define a convenience function make_views that will execute SQL code. Then 
+I define a convenience function `make_views` that will execute SQL code. Then 
 I store the necessary CREATE VIEW statements as strings to variables which are then passed
-to the make_views function. 
+to the `make_views` function. 
 Views created:
 * Artists_6_Longest_Songs
 * Artists_By_Followers
@@ -86,16 +87,16 @@ which I uncover by comparing actual tempo values of the songs to their reported 
 ### visualize.py
 I open a connection to the spotify database.
 I retrieve data from the views created in views.py and store them in DataFrames.
-I define a function recolumn that is useful for reshaping the DataFrames so that 
+I define a function `recolumn` that is useful for reshaping the DataFrames so that 
 they are suitable for the bar graphs I create. 
-I define a function make_bar_graph that takes data, sizing, and labeling information and 
+I define a function `make_bar_graph` that takes data, sizing, and labeling information and 
 then creates and saves an image of a bar graph.
-Then I perform the recolumn-ing, and make bar graphs by calls to make_bar_graph.
-I define a function make_scatter_plot that takes data, sizing, labeling, and coloring 
+Then I perform the `recolumn`-ing, and make bar graphs by calls to `make_bar_graph`.
+I define a function `make_scatter_plot` that takes data, sizing, labeling, and coloring 
 information, and then creates and saves an image of a scatter plot.
 I perform some data transformation to make the 'release_date' and 'followers' columns more
 useful for the scatter plots.
-Finally I make scatter plots by calls to make_scatter_plots.
+Finally I make scatter plots by calls to `make_scatter_plot`.
 
 ### spotify.db
 An SQLite database containing the tables and views described above.

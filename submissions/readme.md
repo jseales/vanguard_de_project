@@ -16,6 +16,7 @@ I ingest data via the spotipy API, and store it in four DataFrames:
 * Album
 * Track
 * Track_Feature
+
 Then I begin the process of cleaning data. 
 First I delete some rows from Track that correspond with audio tracks for which no audio
 features were provided by Spotify. I checked them, and found that each was a spoken intro,
@@ -29,6 +30,7 @@ Then I remove further duplicate tracks that were not on duplicate albums.
 I check for NaNs and find none. 
 Finally I create a SQLite database 'spotify.db' and save the data from each DataFrame as 
 a table in it. The tables have the same names as the DataFrames:
+
 * Artist
 * Album
 * Track
@@ -46,34 +48,34 @@ Views created:
 * Artist_Danceability
 * Scatter_Data
 
-##Artists_6_Longest_Songs##
+**Artists_6_Longest_Songs**
 Finds the 6 longest songs for each artist. They are ordered by descending length, 
 with each artist's 6 tracks on consecutive rows. The artists are ordered by their average
 song length. 
 
-##Artists_By_Followers##
+**Artists_By_Followers**
 Represents the number of followers for each artist, ordered in descending order of follower
 quantity. 
 
-##Artists_6_Fastest_Songs##
+**Artists_6_Fastest_Songs**
 Finds the 6 fastest songs for each artist, as reported by Spotify data. They are ordered
 in descending tempo, with each artist's 6 tracks on consecutive rows. The artists are ordered
 by their average tempo.
 
-##Artist_Happiness##
+**Artist_Happiness**
 Looks at the distribution of valence for each artist's discography. 'Happiness' is an imperfect
 synonym for valence, but it evokes nearly the right idea. For each artist, 5 data points are
 recorded, corresponding to the maximum, 75th percentile, 50th percentile, 25th percentile, 
 and minimum values for valence for songs in their catalogue. The 5 data points are stored
 consecutively, and the artists are ordered by average valence.
 
-##Artist_Danceability##
+**Artist_Danceability**
 Looks at the distribution of danceability for each artist's discography For each artist, 
 5 data points are recorded, corresponding to the maximum, 75th percentile, 50th percentile, 
 25th percentile, and minimum values for danceability for songs in their catalogue. The 5 
 data points are stored consecutively, and the artists are ordered by average danceability.
 
-##Scatter_Data##
+**Scatter_Data**
 Gathers together the popularity and follower count of its artist, the release date, and 
 track feature values for each track in the database. These are used in various combinations
 to create scatter plots in visualize.py
